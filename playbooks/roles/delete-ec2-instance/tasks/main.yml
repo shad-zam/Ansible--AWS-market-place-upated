@@ -1,0 +1,7 @@
+---
+
+  - name: Delete EC2 instance
+    ec2:
+      state: absent
+      instance_ids: "{{ instance_ids }}"
+      region: "{{ region }}"

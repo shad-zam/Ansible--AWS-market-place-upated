@@ -1,0 +1,19 @@
+---
+# tasks file for app install
+
+- name: Copy install script
+  copy:
+    src: script.sh
+    dest: /home/centos/
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+    mode: 0744
+
+- name: run the script to install app
+  command: sh /home/centos/script.sh
+  register: script_output
+
+- debug:
+    msg: "{{script_output}}"
+
+

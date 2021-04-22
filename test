@@ -1,0 +1,4 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=centos
+region=us-east-1

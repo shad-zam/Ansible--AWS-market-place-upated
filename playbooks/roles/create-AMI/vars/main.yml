@@ -1,0 +1,3 @@
+---
+
+  instance_ids: "{{ lookup('file', '/mnt/c/Users/Arshad/PycharmProjects/ami_creation/ec2-instances-ids') }}"

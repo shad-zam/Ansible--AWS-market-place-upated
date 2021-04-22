@@ -1,0 +1,53 @@
+{
+"Catalog": "AWSMarketplace",
+"ChangeSet": [
+  {
+    "ChangeType":"AddDeliveryOptions",
+    "Entity":{
+      "Identifier":"{{entity_id}}",
+      "Type":"AmiProduct"
+     },
+      "Details": "{
+        "Version": {
+          "VersionTitle": "{{version_title}}",
+          "ReleaseNotes": "{{*My new Release notes*}}"
+        },
+        "DeliveryOptions": [
+          {
+            "Details": {
+              "AmiDeliveryOptionDetails": {
+                "AmiSource": {
+                  "AmiId": "{{ami}}",
+                  "AccessRoleArn": "{{role_arn}}",
+                  "UserName": "{{ansible_user}}",
+                  "OperatingSystemName": "{{os}}",
+                  "OperatingSystemVersion": "Amazon Linux 2 AMI 2.0.20210126.0 x86_64 HVM gp2"
+                },
+                "UsageInstructions": "{{usage}}",
+                "RecommendedInstanceType": "{{instance_type}}",
+                "SecurityGroups": [
+                  {
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                    "IpRanges": [
+                      "0.0.0.0/0"
+                    ]
+                  },
+                  {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "IpRanges": [
+                      "0.0.0.0/0"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+
+  - name: Create AMI
+    ec2_ami:
+      instance_id: "{{ instance_ids }}"
+      wait: yes
+      region: "{{region}}"
+      name: "ARSHAD{{ ansible_date_time.iso8601_basic_short }}"
+    register: ec2_ami
+  
+  - name: Create file with ec2 instance ids
+    copy:
+      dest: "/mnt/c/Users/Arshad/PycharmProjects/ami_creation/ami-ids"
+      content: |
+        {{ ec2_ami.image_id  }}

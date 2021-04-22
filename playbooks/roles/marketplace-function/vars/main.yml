@@ -1,0 +1,10 @@
+---
+
+            version_title: "Class4 Fusion Version 6.x"
+            release_note: "New Release"
+            ami: "{{ lookup('file', '/mnt/c/Users/Arshad/PycharmProjects/ami_creation/ami-ids') }}"
+            role_arn: arn:aws:iam::388079551923:role/AWS-marketplace-AMI
+            os:
+            instance_type: c4.2xlarge
+            usage: "you need to open port 80 on  your firewall after install you can access web UI with http://your_public_ip you will be faced with first time wizard install, which will help you setup access for the password and basic setings."
+

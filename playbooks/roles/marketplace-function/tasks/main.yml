@@ -1,0 +1,31 @@
+---
+
+  - name: get marketplace entries
+    command: >
+      aws marketplace-catalog list-entities
+        --catalog AWSMarketplace
+        --entity-type AmiProduct
+        --endpoint-url https://catalog.marketplace.us-east-1.amazonaws.com
+        --filter-list Name=Name,ValueList="Class4 Fusion Version 6.x"
+        --region us-east-1
+        --output json
+    register: mp_output
+
+  - name: get_dict
+    set_fact:
+      E_S: "{{ mp_output.stdout }}"
+
+  - name: get details
+    set_fact:
+      entity_arn: "{{ E_S.EntitySummaryList[0].EntityArn }}"
+      entity_id: "{{ E_S.EntitySummaryList[0].EntityId }}"
+
+  - debug:
+      msg: "{{ansible_date_time.date}}"
+
+#  - name: Request the change
+#    command: >
+#      aws marketplace-catalog start-change-set
+#        --catalog AWSMarketplace
+#        --change-set ChangeType=update,Entity={Type=AmiProduct,Identifier={entity_id}},Details="updating new version"
+#        --cli-input-json '{{ lookup('template', 'create-db-cluster.json.j2') | to_json }}'

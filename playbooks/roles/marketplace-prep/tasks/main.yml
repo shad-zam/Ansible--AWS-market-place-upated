@@ -1,0 +1,16 @@
+---
+# tasks file for app install
+
+- name: truncat centos authorized keys
+  command: truncate -s 0 /home/centos/.ssh/authorized_keys
+
+- name: truncat root authorized keys
+  command: sudo truncate -s 0 /root/.ssh/authorized_keys
+
+- name: clear history
+  file:
+    path: /home/centos/.*history
+    state: absent
+
+
+

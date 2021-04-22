@@ -1,0 +1,18 @@
+---
+- name: test
+  hosts: localhost
+  roles:
+    - get-ec2
+
+- name: App install
+  hosts: all
+  roles:
+   - app-install
+   - marketplace-prep
+
+- name: Create AMI
+  hosts: localhost
+  roles:
+   - create-AMI
+   - delete-ec2-instance
+   - marketplace-function
