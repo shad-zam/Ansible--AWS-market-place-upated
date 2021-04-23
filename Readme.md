@@ -3,3 +3,5 @@ That AMI can be hosted to marketplace by initiating a change set.
 
 You require Ansible & AWS cli to run this.
 
+inside the app install role a placeholder script is added. 
+replace that script with the script to install your application.
