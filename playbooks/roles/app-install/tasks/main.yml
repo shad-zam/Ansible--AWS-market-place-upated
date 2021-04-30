@@ -3,7 +3,7 @@
 
 - name: Copy install script
   copy:
-    src: script.sh
+    src: denovo_install_backend+frontend.sh
     dest: /home/centos/
     owner: "{{ansible_user}}"
     group: "{{ansible_user}}"
